@@ -1,0 +1,38 @@
+.passo-container{
+    border: 2px solid #050;
+    margin: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    padding: 10px 10px;
+}
+
+.passo-id-container{
+    flex: 1;    
+}
+
+.passo-id{
+    justify-content: center;
+    align-items: center;
+    background-color: #050;
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    font-size: 50px;
+    font-weight: bolder;
+    text-align: center ;
+    margin: auto;
+}
+.passo{
+    justify-content: center;
+    align-items: center;
+    top: auto;
+    flex: 10;
+    text-align: justify;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.passo-id span{
+    padding: auto;
+}
