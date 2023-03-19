@@ -1,16 +1,20 @@
-.passo-container{
+.category-container{
     border: 2px solid #050;
     margin: 5px 10px;
     border-radius: 15px;
     display: flex;
     padding: 10px 10px;
+    align-items: center;
+    justify-content: center;
 }
 
-.passo-id-container{
-    flex: 1;    
+.category-id-container{
+    flex: 1;
+    
 }
 
-.passo-id{
+.category-id{
+    display: flex;
     justify-content: center;
     align-items: center;
     background-color: #050;
@@ -20,10 +24,10 @@
     border-radius: 50%;
     font-size: 50px;
     font-weight: bolder;
-    text-align: center ;
     margin: auto;
 }
-.passo{
+.category-name{
+    color: #050;
     justify-content: center;
     align-items: center;
     top: auto;
@@ -33,6 +37,7 @@
     font-weight: bold;
 }
 
-.passo-id span{
+.category-id span{
     padding: auto;
+
 }

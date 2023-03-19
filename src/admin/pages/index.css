@@ -1,0 +1,227 @@
+html, body, #root, .admin{
+    height: 100%;
+}
+a {
+    text-decoration: none;
+    color: green;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 0 10px ;
+    font-size: 24px;
+}
+.logout{
+    position: absolute;
+    background-color: #239533;
+    width: 80px;
+    padding: 16px 10px; 
+    top: 57px;
+    border-radius: 0 5px 0 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    border: 1px sold white;
+    font-weight: 500;
+}
+
+.username{
+    width: 100%;
+}
+.username button{
+    display: flex;
+    align-items: center;
+    height: 54px;
+    width: 100%;
+    padding:0 15px;
+    cursor:pointer;
+    background-color: rgb(35, 149, 51);
+    font-size: 24px;
+    color: white;
+    border: none;
+
+}
+
+.username button:hover{
+    background-color: rgb(15, 129, 31);
+}
+
+.admin-container{
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+    padding: 15px 0;
+    height: calc(100% - 54px);
+
+}
+
+.nav{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    width: 200px;
+    border-right: 1px solid grey;
+
+}
+
+.menu li{
+    text-align: right;
+    padding: 15px;
+}
+
+.menu a li:hover{
+    background-color: #efefef;
+}
+
+.main-content{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+.admin-form-container{
+    padding: 20px;
+}
+.content-header h1{
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: green;
+}
+.item-content{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.item-name{
+    align-items: start;
+    width: 30%;
+}
+.edit-item{
+    width: 20%;
+    text-align: right;
+}
+
+.table-header{
+    font-weight: bold;
+    font-size: 20px;
+}
+.confirm-delete{
+    padding: 10px;
+}
+
+.item a, .item button{
+    color: #239533;
+    padding:0 15px;
+}
+.item button{
+    background-color: inherit;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.item button:nth-child(even){
+    border-left: 1px solid gray;
+}
+
+.item:nth-child(even){
+    background-color: #eee;
+}
+
+.content-header{
+    display: flex;
+    justify-content: space-between;
+    
+    margin-bottom:20px ;
+}
+.add{
+    background-color: #239533;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 15px;
+    font-size: 18px;
+    color: white;
+    font-weight: 600;
+
+}
+
+.admin form{
+
+    display: flex;
+    justify-content: top;
+    /* align-items: center; */
+    flex-direction: column;
+
+    flex-grow: unset;
+}
+
+.input-container{
+    display: flex;
+    justify-content: space-between;
+
+
+}
+
+.input-container label{
+    font-size: 18px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+  
+    
+} 
+.input-container input, .input-container select{
+    height: 32px;
+    width: 600px;
+    border: 1px solid #239533;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    margin-bottom: 10px;
+    margin-right: 10px;
+    
+
+}
+
+.label-container{
+    width: 100px;
+}
+
+.input-container .input-inner .steps{
+    width: 528px;
+}
+
+.error{
+    margin-top:10px;
+}
+
+.add-step, .submit{background-color: green;}
+.admin form button{
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px ;
+    font-size: 24px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.input-container button{
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-step{
+    margin-left: 10px;
+    background-color: red;
+}
+
+.button-container{
+    display: flex;
+    justify-content: right;
+}
+
+/* .edit-item{
+    min-width: 150px;
+} */

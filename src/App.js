@@ -1,69 +1,56 @@
-import logo from './logo.svg';
+/* eslint-disable jsx-a11y/no-autofocus */
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes, useNavigate} from 'react-router-dom';
-import Tutoriais from './exibirTutorial'
-import background from './img/bg.jpg'
+import {
+  BrowserRouter as Router, Route, Routes,
+} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
+import { ToastContainer } from 'react-toastify';
+
+import store, { persistor } from './store/index';
+import Login from './admin/pages/login/login';
+import Admin from './admin/pages';
+import Home from './pages/home';
+import history from './services/history';
 
 import './App.css';
-import MenuItem from './MenuItem';
-import Menu from './Menu';
-import ExibirTutorial from './exibirTutorial';
 
-function App() {   
+import Tutorial from './pages/tutorial';
+import ProtectedRoute from './routes/protectedRoute';
+import Category from './admin/pages/categories';
+import TutorialAdm from './admin/pages/Tutorials';
+import User from './admin/pages/users';
+import CategoryForm from './admin/pages/categories/form';
+import TutorialForm from './admin/pages/Tutorials/form';
+import Detail from './admin/pages/Tutorials/detail';
+
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" exact element={<Home />} />
-        <Route path="/tutorial/:id" exact element={<ExibirTutorial />} />
-        
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Router history={history}>
+          <Routes>
+            <Route path="/" exact element={<Home />} />
+            <Route path="/admin/login" exact element={<Login />} />
+            <Route path="/admin/" element={<ProtectedRoute><Admin /></ProtectedRoute>}>
+              <Route path="categories" index element={<Category />} />
+              <Route path="categories/form" element={<CategoryForm />} />
+              <Route path="categories/form/:id" element={<CategoryForm />} />
+              <Route path="tutorials/form/" element={<TutorialForm />} />
+              <Route path="tutorials/form/:id" element={<TutorialForm />} />
+              <Route path="tutorials" element={<TutorialAdm />} />
+              <Route path="tutorials/:id" element={<Detail />} />
+              <Route path="users" element={<User />} />
+            </Route>
+            <Route path="/tutorials/:id" exact element={<Tutorial />} />
 
-      </Routes>   
-    </Router>
-    
+          </Routes>
+          <ToastContainer autoClose={3000} className="toast-container" />
+        </Router>
+      </PersistGate>
+    </Provider>
+
   );
-}
-
-const Home = () =>{
-  const navigate = useNavigate();
-  const menu = [
-    {
-      id: '1',
-      titulo:'Wi-fi'
-    },
-    {
-      id: '2',
-      titulo:'Criar e-mail acadêmico/institucional'
-    },
-    {
-      id: '3',
-      titulo:'Alterar senha do SUAP'
-    },
-    {
-      id: '4',
-      titulo:'Requisitar equipamento'
-    },
-    {
-      id: '5',
-      titulo:'Informar defeito ou mal funcionamento'
-    },
-];
-
-  const handleKeyPress = (event) => {
-    const numeroValido =  menu.filter((tutorial) => tutorial.id === event.key); 
-    
-    if (numeroValido.length >0){
-      navigate(`/tutorial/${event.key}`)
-    }
-  }
-  return(
-  <div  className="App">
-    <div className='header'>
-      <h1>OBSERVE AS OPÇÕES DE <span>AUTO ATENDIMENTO ABAIXO</span> ANTES DE SOLICITAR O ATENDIMENTO PESSOAL</h1>
-    </div>
-    <div className='hidden-input'><input type='text' autoFocus onKeyDown={handleKeyPress}></input></div>
-    <Menu itens={menu} />
-  </div>
-);
 }
 
 export default App;
