@@ -48,14 +48,18 @@ export default function Form() {
   return (
     <div className="admin-form-container">
       <div className="content-header">
-        <h1>{id ? 'EDITAR CATEGORIA' : 'NOVa CATEGORIA'}</h1>
+        <h1>{id ? 'EDITAR CATEGORIA' : 'NOVA CATEGORIA'}</h1>
 
       </div>
-      <form className="form" onSubmit={handleSubmit} action={id ? `${process.env.REACT_APP_API_URL}/categories/${id}` : `${process.env.REACT_APP_API_URL}/categories/`}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="input-container">
-          <label htmlFor="name">Nome da categoria:</label>
-          <input type="text" name="name" value={name} id="name" onChange={(e) => setName(e.target.value)} />
-          <div className="hidden error" />
+          <div className="label-container">
+            <label htmlFor="name">Nome:</label>
+          </div>
+          <div className="input-inner">
+            <input type="text" name="name" value={name} id="name" onChange={(e) => setName(e.target.value)} />
+            <div className="hidden error" />
+          </div>
         </div>
         <div className="button-container"><button type="submit" className="submit">Enviar</button></div>
       </form>

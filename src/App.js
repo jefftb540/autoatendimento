@@ -22,6 +22,7 @@ import TutorialAdm from './admin/pages/Tutorials';
 import User from './admin/pages/users';
 import CategoryForm from './admin/pages/categories/form';
 import TutorialForm from './admin/pages/Tutorials/form';
+import UserForm from './admin/pages/users/form';
 import Detail from './admin/pages/Tutorials/detail';
 
 function App() {
@@ -41,6 +42,8 @@ function App() {
               <Route path="tutorials" element={<TutorialAdm />} />
               <Route path="tutorials/:id" element={<Detail />} />
               <Route path="users" element={<User />} />
+              <Route path="users/form/" element={<UserForm />} />
+              <Route path="users/form/:id" element={<UserForm />} />
             </Route>
             <Route path="/tutorials/:id" exact element={<Tutorial />} />
 

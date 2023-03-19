@@ -15,35 +15,12 @@ export default function Login() {
   const navigate = useNavigate();
   useEffect(() => {
     if (isLoggedIn) {
-      navigate('/admin/');
+      navigate('/admin/tutorials');
     }
   }, [isLoggedIn, navigate]);
 
   const dispatch = useDispatch();
   let validForm = true;
-
-  // function showError(input, msg) {
-  //   const nextSibiling = input.nextElementSibling;
-  //   nextSibiling.classList.remove('hidden');
-  //   nextSibiling.innerHTML += `${msg}<br />`;
-  // }
-
-  // function clearErrors() {
-  //   messages.forEach((message) => {
-  //     message.classList.add('hidden');
-  //     // eslint-disable-next-line no-param-reassign
-  //     message.innerHTML = '';
-  //   });
-  // }
-
-  // function validateEmptyFields() {
-  //   fields.forEach((field) => {
-  //     if (field.value === '') {
-  //       showError(field, 'O campo não pode estar em branco');
-  //       validForm = false;
-  //     }
-  //   });
-  // }
 
   function validateIfrnId() {
     const input = document.querySelector('#ifrn_id');

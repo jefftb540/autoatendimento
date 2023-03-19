@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import './index.css';
+import { loginFailure } from '../../store/modules/auth/actions';
 
 export default function Admin() {
   const user = useSelector((state) => state.auth.user);
@@ -9,13 +10,20 @@ export default function Admin() {
   function toogleLogout() {
     setShowLogout(!showLogout);
   }
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function handleLogout() {
+    dispatch(loginFailure());
+    navigate('/admin/login');
+  }
   return (
     <div className="admin">
       <div className="header">
         <div className="ifrn">IFRN</div>
         <div className="user-menu">
           <div className="username"><button type="button" onClick={toogleLogout}>{user.name}</button></div>
-          <div className={showLogout ? 'dropdown logout ' : ' hidden'}>Sair</div>
+          <div className={showLogout ? 'dropdown logout ' : ' hidden'}><button type="button" onClick={handleLogout}>Sair</button></div>
         </div>
       </div>
       <div className="admin-container">

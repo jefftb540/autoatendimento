@@ -138,7 +138,7 @@ export default function Form() {
         <h1>{id ? 'EDITAR TUTORIAL' : 'NOVO TUTORIAL'}</h1>
 
       </div>
-      <form className="form" onSubmit={handleSubmit} action={id ? `${process.env.REACT_APP_API_URL}/categories/${id}` : `${process.env.REACT_APP_API_URL}/categories/`}>
+      <form className="form" onSubmit={handleSubmit}>
         <div className="input-container">
           <div className="label-container">
             <label htmlFor="name">Categoria:</label>

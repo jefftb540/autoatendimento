@@ -14,15 +14,22 @@ a {
     font-size: 24px;
 }
 .logout{
+    
+    border: 1px sold white;
+}
+.logout button {
     position: absolute;
+    font-size: 24px;
+    border: none;
     background-color: #239533;
+    color: white;
     width: 80px;
     padding: 16px 10px; 
     top: 57px;
     border-radius: 0 5px 0 5px;
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    border: 1px sold white;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .username{
