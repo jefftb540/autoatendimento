@@ -24,7 +24,7 @@ function Tutorial() {
   }, [setTutorial]);
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [stepsForPage] = useState(4);
+  const [stepsForPage] = useState(6);
 
   const indexOfLastStep = currentPage * stepsForPage;
   const indexOfFirstStep = indexOfLastStep - stepsForPage;
@@ -51,6 +51,7 @@ function Tutorial() {
     <>
       <div className="hidden-input"><input type="text" autoFocus onBlur={(e) => e.target.focus()} onKeyDown={handleKeyPress} /></div>
       <StepList tutorial={currentPosts} pageNumber={currentPage} stepsForPage={stepsForPage} />
+      <h1 className="next-page">Pressione enter para próxima página</h1>
     </>
   );
 }

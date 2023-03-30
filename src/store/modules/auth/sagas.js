@@ -17,6 +17,7 @@ function* loginRequest({ payload }) {
     axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
     yield call(history.go, '/admin/');
   } catch (error) {
+    console.log(error);
     toast.error('Usuário ou senha inválidos');
     yield put(actions.loginFailure());
   }
