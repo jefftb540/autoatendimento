@@ -10,15 +10,15 @@ import axios from '../../../services/axios';
 import history from '../../../services/history';
 
 function* loginRequest({ payload }) {
+  axios.defaults.headers.post['Content-Type'] = 'application/json';
+
   try {
-    console.log('at loginRequest');
     const response = yield call(axios.post, '/tokens/', payload);
     yield put(actions.loginSuccess({ ...response.data }));
     toast.success('Login com sucesso');
     axios.defaults.headers.Authorization = `Bearer ${response.data.token}`;
     yield call(history.go, '/admin/');
   } catch (error) {
-    console.log(error);
     toast.error('Usuário ou senha inválidos');
     yield put(actions.loginFailure());
   }
